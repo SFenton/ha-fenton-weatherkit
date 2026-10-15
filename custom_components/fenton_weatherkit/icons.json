@@ -1,0 +1,16 @@
+{
+  "entity": {
+    "sensor": {
+      "next_hour": { "default": "mdi:weather-rainy" },
+      "alerts": { "default": "mdi:alert-outline" },
+      "pressure_trend": {
+        "default": "mdi:gauge",
+        "state": { "rising": "mdi:trending-up", "falling": "mdi:trending-down", "steady": "mdi:trending-neutral" }
+      },
+      "precipitation_intensity": { "default": "mdi:weather-pouring" },
+      "moon_phase": { "default": "mdi:moon-waning-crescent" },
+      "api_calls": { "default": "mdi:counter" },
+      "air_quality_index": { "default": "mdi:air-filter" }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Apple WeatherKit",
+        "description": "Paste the WeatherKit key from your Apple Developer account (Certificates, Identifiers & Profiles). The key is checked with Apple before it is saved and never leaves Home Assistant.",
+        "data": {
+          "key_id": "Key ID",
+          "team_id": "Team ID",
+          "service_id": "Services ID",
+          "key_pem": "Private key (.p8 contents)",
+          "latitude": "Latitude",
+          "longitude": "Longitude"
+        },
+        "data_description": {
+          "key_id": "The 10-character ID shown next to the key.",
+          "team_id": "The 10-character team ID in your membership details.",
+          "service_id": "The Services ID registered under Identifiers, for example com.sfenton.home.weatherkit.",
+          "key_pem": "Open the downloaded .p8 file and paste everything, including the BEGIN and END lines."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Apple rejected the WeatherKit key",
+        "description": "The saved key no longer works. It may have been revoked, or WeatherKit was turned off for it. Paste a working key.",
+        "data": {
+          "key_id": "Key ID",
+          "team_id": "Team ID",
+          "service_id": "Services ID",
+          "key_pem": "Private key (.p8 contents)"
+        }
+      }
+    },
+    "error": {
+      "invalid_key": "That isn't a WeatherKit private key. Paste the whole .p8 file.",
+      "invalid_auth": "Apple rejected the key. Check that WeatherKit is ticked for this key and that the Key ID, Team ID and Services ID match it.",
+      "over_quota": "This developer account has used its WeatherKit calls for the month.",
+      "no_data": "Apple has no weather data for this location.",
+      "cannot_connect": "Couldn't reach Apple's WeatherKit service. Try again in a minute."
+    },
+    "abort": {
+      "already_configured": "This location is already set up.",
+      "reauth_successful": "The new key works."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Polling and budget",
+        "data": {
+          "interval_seconds": "Update every",
+          "forecast_interval_minutes": "Refresh hourly and daily forecasts every",
+          "hourly_hours": "Hourly forecast length",
+          "monthly_budget": "Monthly call budget",
+          "air_quality": "Outdoor air quality from Open-Meteo"
+        },
+        "data_description": {
+          "interval_seconds": "Each update is one call. Once a minute uses about 45,000 calls a month.",
+          "forecast_interval_minutes": "Forecasts ride along in an update, so this costs no extra calls.",
+          "monthly_budget": "Updates slow down by themselves so the month stays under this. Apple includes 500,000.",
+          "air_quality": "WeatherKit has no air quality data. This adds a free US AQI sensor."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_hour": { "name": "Next hour" },
+      "alerts": { "name": "Alerts" },
+      "pressure_trend": {
+        "name": "Pressure trend",
+        "state": { "rising": "Rising", "falling": "Falling", "steady": "Steady" }
+      },
+      "precipitation_intensity": { "name": "Precipitation intensity" },
+      "moon_phase": {
+        "name": "Moon phase",
+        "state": {
+          "new_moon": "New moon",
+          "waxing_crescent": "Waxing crescent",
+          "first_quarter": "First quarter",
+          "waxing_gibbous": "Waxing gibbous",
+          "full_moon": "Full moon",
+          "waning_gibbous": "Waning gibbous",
+          "last_quarter": "Last quarter",
+          "waning_crescent": "Waning crescent"
+        }
+      },
+      "api_calls": { "name": "API calls" },
+      "air_quality_index": { "name": "Air quality index" }
+    }
+  }
+}
