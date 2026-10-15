@@ -1,0 +1,12 @@
+{
+  "domain": "fenton_weatherkit",
+  "name": "Fenton WeatherKit",
+  "codeowners": ["@SFenton"],
+  "config_flow": true,
+  "documentation": "https://github.com/SFenton/ha-fenton-weatherkit",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/SFenton/ha-fenton-weatherkit/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
